@@ -4,7 +4,6 @@ export default class StudentDetail extends Component {
     constructor(props){
         super(props);
       }
-      
         render() {
           const {schoolname,grade,division} = this.props.student;
           return (

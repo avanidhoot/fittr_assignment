@@ -10,23 +10,22 @@ import { Container, Row, Col, Button } from 'react-bootstrap';
 class App extends Component {
   constructor(props){
     super(props);
-    this.state ={show:false, newStudent:{}}
+    this.state ={show:false}
   }
   addNewStudent=()=>{
-    let stud = this.props.addStudent({
+    this.props.addStudent({
       id:Math.max(...this.props.studentList.map(function(o){return o.id})) + 1,
       schoolname:'',
       grade:'',
       division:''
     });
     this.setState({
-      show: true,
-      newStudent: stud.payload
+      show: true
     });
   }
 
   editStudentSubmit=(id,schoolname,grade,division)=>{
-    this.props.updateStudent({id:this.state.newStudent.id,
+    this.props.updateStudent({id:this.props.studentList[this.props.studentList.length - 1].id,
       schoolname:schoolname,
       grade:grade,
       division:division});
@@ -36,10 +35,10 @@ class App extends Component {
   }
   render() {
     return (
-      this.state.show === true ? <StudentNewForm addNewStudent = {this.state.newStudent}
+      this.state.show === true ? <StudentNewForm addNewStudent = {this.props.studentList[this.props.studentList.length - 1]}
                                       editStudentSubmit={this.editStudentSubmit}/> :
           <Container>
-            <Row className="justify-content-md-center" style={{"margin-top": "20px"}}>
+            <Row className="justify-content-md-center" style={{"marginTop": "20px"}}>
               <Col className="text-center">Listing Page of Schools</Col>
             </Row>
             <div className="card-body">
