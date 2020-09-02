@@ -15,6 +15,7 @@ class App extends Component {
   addNewStudent=()=>{
     this.props.addStudent({
       id:Math.max(...this.props.studentList.map(function(o){return o.id})) + 1,
+      name:'',
       schoolname:'',
       grade:'',
       division:''
@@ -24,8 +25,9 @@ class App extends Component {
     });
   }
 
-  editStudentSubmit=(id,schoolname,grade,division)=>{
+  editStudentSubmit=(id,name,schoolname,grade,division)=>{
     this.props.updateStudent({id:this.props.studentList[this.props.studentList.length - 1].id,
+      name:name,
       schoolname:schoolname,
       grade:grade,
       division:division});
@@ -39,7 +41,7 @@ class App extends Component {
                                       editStudentSubmit={this.editStudentSubmit}/> :
           <Container>
             <Row className="justify-content-md-center" style={{"marginTop": "20px"}}>
-              <Col className="text-center">Listing Page of Schools</Col>
+              <Col className="text-center">Listing Page of Students</Col>
             </Row>
             <div className="card-body">
               <StudentList studentList={this.props.studentList}/>

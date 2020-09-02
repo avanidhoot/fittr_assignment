@@ -10,9 +10,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 let initialState = [
-  {id:1,schoolname:'Test A',grade:1,division:'Division A'},
-  {id:2,schoolname:'Test B',grade:2,division:'Division B'},
-  {id:3,schoolname:'Test C',grade:3,division:'Division C'}
+  {id:1,name:'Name A',schoolname:'Test A',grade:1,division:'Division A'},
+  {id:2,name:'Name B',schoolname:'Test B',grade:2,division:'Division B'},
+  {id:3,name:'Name C',schoolname:'Test C',grade:3,division:'Division C'}
 ];
 
 if( localStorage.getItem("students") === null)

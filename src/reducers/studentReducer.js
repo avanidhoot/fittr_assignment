@@ -10,9 +10,10 @@ case 'ADD_STUDENT':
     
 case 'UPDATE_STUDENT':
     stateCopy = state.map((student) => {
-        const {id,schoolname,grade,division} = action.payload;
+        const {id,name,schoolname,grade,division} = action.payload;
         if(student.id === id)
         {
+            student.name = name;
             student.schoolname = schoolname;
             student.grade = grade;
             student.division = division;

@@ -5,15 +5,15 @@ export default class StudentDetail extends Component {
         super(props);
       }
         render() {
-          const {schoolname,grade,division} = this.props.student;
+          const {name, schoolname, grade, division} = this.props.student;
           return (
             <Modal.Dialog>
                 <Modal.Header >
-                    <Modal.Title>{schoolname}</Modal.Title>
+                    <Modal.Title>{name}</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
+                    <p>SchoolName:{schoolname}</p>
                     <p>Grade:{grade}</p>
-                    <br/>
                     <p>Division:{division}</p>
                 </Modal.Body>
                 <Modal.Footer>

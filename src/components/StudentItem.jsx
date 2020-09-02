@@ -15,13 +15,15 @@ export default class StudentItem extends Component {
   }
   
     render() {
-      const {schoolname,grade,division} = this.props.student;
+      const {name,schoolname,grade,division} = this.props.student;
       return (
         this.state.showCard === true ? <StudentDetail student={this.props.student} cardHideClick={this.cardHideClick}/> :
         <Card className="text-center" onClick={this.cardShowClick}>
-          <Card.Header>SchoolName:{schoolname}</Card.Header>
+          <Card.Header>Student_Name:{name}</Card.Header>
           <Card.Body>
             <Card.Text>
+              SchoolName:{schoolname}
+              <br/>
               Grade: {grade}
               <br/>
               Division: {division}

@@ -7,15 +7,23 @@ export default class StudentNewForm extends Component {
   editStudentSubmit=()=>{
     this.props.editStudentSubmit(
     this.id,
+    this.nameInput.value,
       this.schoolnameInput.value,this.gradeInput.value,
       this.divisionInput.value);
   }
     render() {
-        const {id,schoolname,grade,division} = this.props.addNewStudent;
+        const {id,name,schoolname,grade,division} = this.props.addNewStudent;
         return (
               <Form onSubmit = {this.editStudentSubmit}>
                 <Form.Group controlId="Schoolform">
                   <Form.Label>School ID:{id}</Form.Label><br/>
+                  <Form.Label>StudentName</Form.Label>
+                  <Form.Control
+                          required
+                          type="text"
+                          placeholder="Student Name"
+                          ref={nameInput => this.nameInput = nameInput} defaultValue ={name}
+                  />
                   <Form.Label>SchoolName</Form.Label>
                   <Form.Control
                           required
